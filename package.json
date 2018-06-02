@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+ssh:git@github.com:rodrigocmoreira/tvmaze-scraper.git"
   },
   "keywords": [
     "tvmaze"
   ],
   "author": "Rodrigo Cardoso Moreira",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/minutrade/bonuz-engage-lineup-limit#readme",
+  "homepage": "https://github.com/rodrigocmoreira/tvmaze-scraper#readme",
   "engines": {
     "node": "8.11.1"
   },
