@@ -57,7 +57,11 @@ describe('Integration test shows-cast', () => {
     });
 
     after((done) => {
-      server.close(done);
+      mongoService.getMongoInstance((err, mongo) => {
+        mongo.clean('shows', () => {
+          mongo.close(() => server.close(done));
+        });
+      });
     });
 
     it('Should return 200 and a list of shows and Cast', (done) => {
