@@ -1,5 +1,7 @@
 {
     "PORT": 4100,
-    "TVMAZE_URL": "http://www.tvmaze.com/api"
+    "TVMAZE_URL": "http://www.tvmaze.com/api",
+    "MONGO_URL": "mongodb://localhost:27017/tvmaze",
+    "PAGE_SIZE": "250"
   }
   
