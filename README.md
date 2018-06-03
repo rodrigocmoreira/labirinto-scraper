@@ -1,6 +1,6 @@
 # tvmaze-scraper
 
-[Build Status](https://travis-ci.org/rodrigocmoreira/sgt-fields.svg?branch=master)]
+[![Build Status](https://travis-ci.org/rodrigocmoreira/sgt-fields.svg?branch=master)]
 
 ## To test on Windows
 
