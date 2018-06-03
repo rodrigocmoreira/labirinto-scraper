@@ -75,7 +75,7 @@ describe('Integration test shows-cast', () => {
               id: 7,
               name: 'Mike Vogel',
               birthday: new Date('1979-07-17').toISOString()
-            },
+            }
           ]
         },
         {
@@ -86,7 +86,7 @@ describe('Integration test shows-cast', () => {
               id: 6,
               name: 'Michael Emerson',
               birthday: new Date('1950-01-01').toISOString()
-            },
+            }
           ]
         }
       ];
