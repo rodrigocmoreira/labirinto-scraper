@@ -1,13 +1,27 @@
 # tvmaze-scraper
 
-To test on windows use:
+[Build Status](https://travis-ci.org/rodrigocmoreira/sgt-fields.svg?branch=master)]
 
+## To test on Windows
+
+```sh
 npm run test_windows
+```
+
 or
+
+```sh
 npm run mocha_windows
+```
 
-on Unix based os systems use:
+## To test on Unix based OS systems
 
+```sh
 npm test
+```
+
 or
+
+```sh
 npm run mocha
+```
