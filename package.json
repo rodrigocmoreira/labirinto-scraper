@@ -8,7 +8,7 @@
     "mocha": "NODE_ENV=test && _mocha",
     "mocha_windows": "set NODE_ENV=test && _mocha",
     "check": "./node_modules/.bin/eslint ./**.js .",
-    "coverage": "./node_modules/.bin/istanbul cover --print both _mocha --",
+    "coverage": "./node_modules/.bin/istanbul cover --print both --hook-run-in-context ./node_modules/mocha/bin/_mocha -- -R spec",
     "pretest": " npm run check && npm run depcheck",
     "test": "NODE_ENV=test && npm run coverage",
     "test_windows": "set NODE_ENV=test && npm run coverage",
