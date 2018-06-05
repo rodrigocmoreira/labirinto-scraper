@@ -48,7 +48,9 @@ describe('Integration test shows-cast', () => {
         },
         (callback) => {
           mongoService.getMongoInstance((err, mongo) => {
-            mongo.addManyShows(shows, 'shows', callback);
+            mongo.clean('shows', () => {
+              mongo.addMany(shows, 'shows', callback);
+            });
           });
         }
       ], (err) => {
@@ -58,9 +60,7 @@ describe('Integration test shows-cast', () => {
 
     after((done) => {
       mongoService.getMongoInstance((err, mongo) => {
-        mongo.clean('shows', () => {
-          mongo.close(() => server.close(done));
-        });
+        mongo.close(() => server.close(done));
       });
     });
 

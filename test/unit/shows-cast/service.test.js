@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { assert } = require('chai');
-const { findShowsWithCast } = require('../../../lib/shows-cast/service');
+const { findWithCast } = require('../../../lib/shows-cast/service');
 const { mongoService } = require('../../../lib/repository');
-const findShows = require('../../../lib/shows-cast/find-shows');
+const find = require('../../../lib/shows-cast/find-shows');
 const winston = require('winston');
 
 describe('Unit Test show-cast Service', () => {
@@ -22,15 +22,15 @@ describe('Unit Test show-cast Service', () => {
       sandbox.stub(mongoService, 'getMongoInstance')
         .yields(null, {}, {});
 
-      sandbox.stub(findShows, 'withCast')
+      sandbox.stub(find, 'withCast')
         .yields({}, null, {});
 
       const page = 0;
 
-      findShowsWithCast(page, (err) => {
+      findWithCast(page, (err) => {
         assert.isNotNull(err);
         sinon.assert.calledOnce(mongoService.getMongoInstance);
-        sinon.assert.calledOnce(findShows.withCast);
+        sinon.assert.calledOnce(find.withCast);
         sinon.assert.calledOnce(winston.error);
         done();
       });

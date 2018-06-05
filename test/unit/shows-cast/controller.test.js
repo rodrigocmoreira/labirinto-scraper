@@ -18,7 +18,7 @@ describe('Unit Test show-cast Controller', () => {
 
   describe('#controler execution - Error cases', () => {
     it('Should receive a error during the controller execution', (done) => {
-      sandbox.stub(service, 'findShowsWithCast')
+      sandbox.stub(service, 'findWithCast')
         .yields({}, null, {});
 
       const request = {
@@ -37,7 +37,7 @@ describe('Unit Test show-cast Controller', () => {
       };
 
       showsCastController(request, response);
-      sinon.assert.calledOnce(service.findShowsWithCast);
+      sinon.assert.calledOnce(service.findWithCast);
       sinon.assert.calledOnce(winston.error);
       sinon.assert.calledOnce(winston.info);
       done();

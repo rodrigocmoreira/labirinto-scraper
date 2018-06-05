@@ -14,6 +14,10 @@ const startApplication = (callback) => {
   application.start(callback);
 };
 
+const startScraper = (callback) => {
+  application.scraper(callback);
+};
+
 process
   .on('SIGTERM', shutdown)
   .on('SIGINT', shutdown)
@@ -31,7 +35,8 @@ process.title = packageName;
 winston.info('[APP] Starting application initialization');
 
 series([
-  startApplication
+  startApplication,
+  startScraper
 ], (err) => {
   if (err) {
     winston.error('[APP] initialization failed', err);
