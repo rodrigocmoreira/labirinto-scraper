@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "depcheck": "./node_modules/.bin/depcheck",
+    "depcheck": "./node_modules/.bin/depcheck --ignores bson-objectid",
     "mocha": "NODE_ENV=test && _mocha",
     "mocha_windows": "set NODE_ENV=test && _mocha",
     "check": "./node_modules/.bin/eslint ./**.js .",

@@ -14,7 +14,7 @@ or
 npm run mocha_windows
 ```
 
-## To test on Unix based OS systems
+## To test on Unix OS
 
 ```sh
 npm test
@@ -24,4 +24,16 @@ or
 
 ```sh
 npm run mocha
+```
+
+## To run on Windows
+
+```sh
+npm run start_windows
+```
+
+## To run on Unix OS
+
+```sh
+npm start
 ```
