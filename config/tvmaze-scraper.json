@@ -4,5 +4,5 @@
   "TVMAZE_CAST_URL": "http://api.tvmaze.com/shows/:id/cast",
   "MONGO_URL": "mongodb://localhost:27017/tvmaze",
   "PAGE_SIZE": 250,
-  "PENALTY_TIME": 20000
+  "PENALTY_TIME": 10000
 }
