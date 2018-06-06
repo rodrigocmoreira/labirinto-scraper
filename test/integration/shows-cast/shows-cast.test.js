@@ -35,6 +35,36 @@ describe('Integration test shows-cast', () => {
             birthday: new Date('1950-01-01')
           }
         ]
+      },
+      {
+        id: 5,
+        name: 'The OA',
+        cast: [
+          {
+            id: 8,
+            name: 'Michael Jordan',
+            birthday: new Date('1984-01-01')
+          },
+          {
+            id: 9,
+            name: 'Cristiano Ronaldo'
+          }
+        ]
+      },
+      {
+        id: 6,
+        name: 'Stranger Things',
+        cast: [
+          {
+            id: 8,
+            name: 'The Thing'
+          },
+          {
+            id: 9,
+            name: 'Jordan Pele',
+            birthday: new Date('1979-01-01')
+          }
+        ]
       }
     ];
 
@@ -71,12 +101,12 @@ describe('Integration test shows-cast', () => {
             {
               id: 9,
               name: 'Dean Norris',
-              birthday: new Date('1963-04-08').toISOString().slice(0, 10)
+              birthday: '1963-04-08'
             },
             {
               id: 7,
               name: 'Mike Vogel',
-              birthday: new Date('1979-07-17').toISOString().slice(0, 10)
+              birthday: '1979-07-17'
             }
           ]
         },
@@ -87,7 +117,37 @@ describe('Integration test shows-cast', () => {
             {
               id: 6,
               name: 'Michael Emerson',
-              birthday: new Date('1950-01-01').toISOString().slice(0, 10)
+              birthday: '1950-01-01'
+            }
+          ]
+        },
+        {
+          id: 5,
+          name: 'The OA',
+          cast: [
+            {
+              id: 8,
+              name: 'Michael Jordan',
+              birthday: '1984-01-01'
+            },
+            {
+              id: 9,
+              name: 'Cristiano Ronaldo'
+            }
+          ]
+        },
+        {
+          id: 6,
+          name: 'Stranger Things',
+          cast: [
+            {
+              id: 9,
+              name: 'Jordan Pele',
+              birthday: '1979-01-01'
+            },
+            {
+              id: 8,
+              name: 'The Thing'
             }
           ]
         }
