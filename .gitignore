@@ -3,4 +3,3 @@
 coverage
 node_modules
 .sonarlint
-mongo-mock.js

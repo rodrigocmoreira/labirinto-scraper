@@ -1,6 +1,6 @@
 const nock = require('nock');
 const { assert } = require('chai');
-const { mongoService } = require('../../../lib/repository');
+const { dbService } = require('../../../lib/repository');
 const { config } = require('../../../lib/commons');
 const server = require('../../../lib/application');
 const { core } = require('../../../lib/scraper');
@@ -15,10 +15,8 @@ config.set('PAGE_SIZE', 1);
 describe('#Integration scraper loader  test scraper', () => {
   before((done) => {
     server.start(() => {
-      mongoService.getMongoInstance((err, mongo) => {
-        mongo.clean('shows', () => {
-          done();
-        });
+      dbService.getDBInstance((err, db) => {
+        db.clean(done);
       });
     });
   });
@@ -29,10 +27,8 @@ describe('#Integration scraper loader  test scraper', () => {
   });
 
   after((done) => {
-    mongoService.getMongoInstance((err, mongo) => {
-      nock.cleanAll();
-      mongo.close(() => server.close(done));
-    });
+    nock.cleanAll();
+    server.close(done);
   });
 
   it('Should fill database with loaded shows with cast', (done) => {
@@ -154,8 +150,8 @@ describe('#Integration scraper loader  test scraper', () => {
 
     core.scraperExecution((err) => {
       assert.isNull(err);
-      mongoService.getMongoInstance((errInstance, mongo) => {
-        mongo.find({}, { _id: 0 }, { id: 1 }, 'shows', (errFind, shows) => {
+      dbService.getDBInstance((errInstance, db) => {
+        db.find({}, { _id: 0 }, { id: 1 }, (errFind, shows) => {
           assert.deepEqual(shows, expectedResult);
           done();
         });

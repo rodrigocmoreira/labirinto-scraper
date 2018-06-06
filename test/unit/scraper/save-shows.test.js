@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const winston = require('winston');
 const { assert } = require('chai');
-const { mongoService } = require('../../../lib/repository');
+const { dbService } = require('../../../lib/repository');
 const { saveAll } = require('../../../lib/scraper/save-shows');
 
 describe('Unit Test save-shows', () => {
@@ -17,16 +17,16 @@ describe('Unit Test save-shows', () => {
     sandbox.restore();
   });
 
-  it('Should receive an error on mongo AddMany', (done) => {
+  it('Should receive an error on db AddMany', (done) => {
     const errorOnAddMany = {
       message: 'error adding many'
     };
 
     const mongoFakeObject = {
-      addMany: (shows, collectionName, callback) => callback(errorOnAddMany)
+      addMany: (shows, callback) => callback(errorOnAddMany)
     };
 
-    sandbox.stub(mongoService, 'getMongoInstance')
+    sandbox.stub(dbService, 'getDBInstance')
       .yields(null, mongoFakeObject, {});
 
     const shows = [{
@@ -36,7 +36,7 @@ describe('Unit Test save-shows', () => {
     saveAll(shows, (err, result) => {
       assert.deepEqual(err.message, errorOnAddMany.message);
       assert.deepEqual(result, shows);
-      sinon.assert.calledOnce(mongoService.getMongoInstance);
+      sinon.assert.calledOnce(dbService.getDBInstance);
       sinon.assert.calledOnce(winston.error);
       done();
     });
