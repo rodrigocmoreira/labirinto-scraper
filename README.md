@@ -2,6 +2,16 @@
 
 [![Build Status](https://travis-ci.org/rodrigocmoreira/tvmaze-scraper.svg?branch=master)](https://travis-ci.org/rodrigocmoreira/tvmaze-scraper)
 
+## Require installed
+
+Node version 8.11.1
+
+then
+
+```sh
+npm install
+```
+
 ## To test on Windows
 
 ```sh
