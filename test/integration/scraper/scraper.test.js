@@ -58,12 +58,12 @@ describe('#Integration scraper loader  test scraper', () => {
           {
             id: 9,
             name: 'Dean Norris',
-            birthday: new Date('1963-04-08').toISOString()
+            birthday: '1963-04-08'
           },
           {
             id: 7,
             name: 'Mike Vogel',
-            birthday: new Date('1979-07-17').toISOString()
+            birthday: '1979-07-17'
           }
         ]
       }
@@ -77,7 +77,7 @@ describe('#Integration scraper loader  test scraper', () => {
           {
             id: 6,
             name: 'Michael Emerson',
-            birthday: new Date('1950-01-01').toISOString()
+            birthday: '1950-01-01'
           }
         ]
       }
@@ -126,12 +126,12 @@ describe('#Integration scraper loader  test scraper', () => {
           {
             id: 9,
             name: 'Dean Norris',
-            birthday: new Date('1963-04-08').toISOString()
+            birthday: new Date('1963-04-08')
           },
           {
             id: 7,
             name: 'Mike Vogel',
-            birthday: new Date('1979-07-17').toISOString()
+            birthday: new Date('1979-07-17')
           }
         ]
       },
@@ -142,7 +142,7 @@ describe('#Integration scraper loader  test scraper', () => {
           {
             id: 6,
             name: 'Michael Emerson',
-            birthday: new Date('1950-01-01').toISOString()
+            birthday: new Date('1950-01-01')
           }
         ]
       }
