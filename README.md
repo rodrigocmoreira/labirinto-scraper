@@ -1,6 +1,6 @@
 # labirinto-scraper
 
-[![Build Status](https://travis-ci.org/rodrigocmoreira/labirinto-scraper.svg?branch=master)](https://travis-ci.org/rodrigocmoreira/tvmaze-scraper)
+[![Build Status](https://travis-ci.org/rodrigocmoreira/labirinto-scraper.svg?branch=master)](https://travis-ci.org/rodrigocmoreira/labirinto-scraper)
 
 ## Requires installed
 
