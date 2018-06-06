@@ -1,0 +1,7 @@
+{
+  "PORT": 4100,
+  "TVMAZE_SHOWS_URL": "http://api.tvmaze.com/shows",
+  "TVMAZE_CAST_URL": "http://api.tvmaze.com/shows/:id/cast",
+  "PAGE_SIZE": 250,
+  "PENALTY_TIME": 10000
+}
