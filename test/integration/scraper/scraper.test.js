@@ -85,32 +85,27 @@ describe('#Integration scraper loader  test scraper', () => {
 
     const nockShows = nock('http://shows.com/shows');
 
-    const showsNockGetPage0 = () =>
-      nockShows
-        .get('?page=0')
-        .reply(200, () => showsBodyResultPage0);
+    const showsNockGetPage0 = () => nockShows
+      .get('?page=0')
+      .reply(200, () => showsBodyResultPage0);
 
-    const showsNockGetPage1 = () =>
-      nockShows
-        .get('?page=1')
-        .reply(200, () => showsBodyResultPage1);
+    const showsNockGetPage1 = () => nockShows
+      .get('?page=1')
+      .reply(200, () => showsBodyResultPage1);
 
-    const showsNockGetPage2 = () =>
-      nockShows
-        .get('?page=2')
-        .reply(200, () => showsBodyResultPage2);
+    const showsNockGetPage2 = () => nockShows
+      .get('?page=2')
+      .reply(200, () => showsBodyResultPage2);
 
     const nockCast = nock('http://cast.com/shows');
 
-    const showsNockGetCastId1 = () =>
-      nockCast
-        .get('/1/cast')
-        .reply(200, () => castResult1);
+    const showsNockGetCastId1 = () => nockCast
+      .get('/1/cast')
+      .reply(200, () => castResult1);
 
-    const showsNockGetCastId2 = () =>
-      nockCast
-        .get('/2/cast')
-        .reply(200, () => castResult2);
+    const showsNockGetCastId2 = () => nockCast
+      .get('/2/cast')
+      .reply(200, () => castResult2);
 
     showsNockGetPage0();
     showsNockGetPage1();

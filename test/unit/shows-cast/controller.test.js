@@ -1,7 +1,7 @@
 const sinon = require('sinon');
+const winston = require('winston');
 const { showsCastController } = require('../../../lib/shows-cast/controller');
 const service = require('../../../lib/shows-cast/service');
-const winston = require('winston');
 
 describe('Unit Test show-cast Controller', () => {
   let sandbox;

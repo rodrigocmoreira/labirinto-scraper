@@ -1,9 +1,9 @@
 const sinon = require('sinon');
+const winston = require('winston');
 const { assert } = require('chai');
 const { findWithCast } = require('../../../lib/shows-cast/service');
 const { dbService } = require('../../../lib/repository');
 const find = require('../../../lib/shows-cast/find-shows');
-const winston = require('winston');
 
 describe('Unit Test show-cast Service', () => {
   let sandbox;
