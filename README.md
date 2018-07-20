@@ -2,6 +2,11 @@
 
 [![Build Status](https://travis-ci.org/rodrigocmoreira/labirinto-scraper.svg?branch=master)](https://travis-ci.org/rodrigocmoreira/labirinto-scraper)
 
+## Test it here
+
+Every new successful build is deployed here :)
+https://labirinto-scraper.herokuapp.com/showsCast?page=0
+
 ## Requires installed
 
 Node version 8.11.1
