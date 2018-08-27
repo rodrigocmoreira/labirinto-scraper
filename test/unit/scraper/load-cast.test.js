@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 const sinon = require('sinon');
 const winston = require('winston');
 const { assert } = require('chai');
@@ -9,11 +9,11 @@ const PENALTY_TIME = 1;
 
 config.set('PENALTY_TIME', PENALTY_TIME);
 
-describe('Unit Test load-cast', () => {
+describe.only('Unit Test load-cast', () => {
   let sandbox;
 
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
+    sandbox = sinon.createSandbox();
     sandbox.spy(winston, 'error');
     sandbox.spy(winston, 'info');
   });
@@ -22,13 +22,13 @@ describe('Unit Test load-cast', () => {
     sandbox.restore();
   });
 
-  it('Should receive a error during the load cast action', (done) => {
+  it('Should receive a error during the load cast action', async () => {
     const errorOnRequest = {
       message: 'error on request'
     };
 
-    sandbox.stub(request, 'get')
-      .yields(errorOnRequest, null, {});
+    sandbox.stub(axios, 'get')
+      .rejects(errorOnRequest);
 
     const shows = [
       {
@@ -36,24 +36,25 @@ describe('Unit Test load-cast', () => {
       }
     ];
 
-    loadCast(shows, (err) => {
-      assert.isNotNull(err);
-      assert.strictEqual(err.message, errorOnRequest.message);
-      sinon.assert.calledOnce(request.get);
+    try {
+      await loadCast(shows);
+    } catch (error) {
+      assert.isNotNull(error);
+      assert.strictEqual(error.message, errorOnRequest.message);
+      sinon.assert.calledOnce(axios.get);
       sinon.assert.calledTwice(winston.error);
-      done();
-    });
+    }
   });
 
-  it('Should receive a request status 429 and then return empty response', (done) => {
+  it('Should receive a request status 429 and then return empty response', async () => {
     const requestStatus429 = {
-      statusCode: 429
+      status: 429
     };
 
-    const requestStub = sandbox.stub(request, 'get');
+    const requestStub = sandbox.stub(axios, 'get');
 
-    requestStub.onCall(0).yields(null, requestStatus429, {});
-    requestStub.onCall(1).yields(null, null, {});
+    requestStub.onCall(0).resolves(requestStatus429);
+    requestStub.onCall(1).resolves({});
 
     const shows = [
       {
@@ -61,12 +62,9 @@ describe('Unit Test load-cast', () => {
       }
     ];
 
-    loadCast(shows, (err, result) => {
-      assert.isNull(err);
-      assert.deepEqual(result, shows);
-      sinon.assert.calledTwice(request.get);
-      sinon.assert.calledOnce(winston.info);
-      done();
-    });
+    const result = await loadCast(shows);
+    assert.deepEqual(result, shows);
+    sinon.assert.calledTwice(axios.get);
+    sinon.assert.calledOnce(winston.info);
   });
 });

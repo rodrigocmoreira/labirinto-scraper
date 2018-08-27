@@ -2,11 +2,14 @@
     "extends": "airbnb-base",
     "env": {
         "node": true,
-        "mocha": true,
-        "es6": true
+        "mocha": true
       },
     "rules":{
         "linebreak-style": 0,
         "comma-dangle": 0
+      },
+     "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
       }
 }

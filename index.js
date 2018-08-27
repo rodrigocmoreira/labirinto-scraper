@@ -10,8 +10,8 @@ const shutdown = () => {
   });
 };
 
-const startApplication = (callback) => {
-  application.start(callback);
+const startApplication = async () => {
+  await application.start();
 };
 
 const startScraper = (callback) => {
