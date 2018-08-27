@@ -9,7 +9,7 @@ const PENALTY_TIME = 1;
 
 config.set('PENALTY_TIME', PENALTY_TIME);
 
-describe.only('Unit Test load-cast', () => {
+describe('Unit Test load-cast', () => {
   let sandbox;
 
   beforeEach(() => {
