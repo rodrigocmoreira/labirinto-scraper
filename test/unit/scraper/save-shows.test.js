@@ -4,7 +4,7 @@ const { assert } = require('chai');
 const { dbService } = require('../../../lib/repository');
 const { saveAll } = require('../../../lib/scraper/save-shows');
 
-describe.only('Unit Test save-shows', () => {
+describe('Unit Test save-shows', () => {
   let sandbox;
 
   beforeEach(() => {
