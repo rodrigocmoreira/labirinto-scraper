@@ -41,7 +41,8 @@
     "nedb": "^1.8.0",
     "axios": "^0.18.0",
     "object-mapper": "^5.0.0",
-    "p-each-series": "^1.0.0"
+    "p-each-series": "^1.0.0",
+    "p-whilst": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

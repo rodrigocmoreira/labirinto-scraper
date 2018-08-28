@@ -1,46 +1,37 @@
 const winston = require('winston');
-const { series } = require('async');
 const { name: packageName } = require('./package.json');
 const application = require('./lib/application');
 
-const shutdown = () => {
+const shutdown = async () => {
   winston.info('Gracefully shutdown in progress');
-  application.close(() => {
-    process.exit(0);
-  });
+  await application.close();
+  process.exit(0);
 };
 
 const startApplication = async () => {
   await application.start();
+  await application.scraper();
+  winston.info('[APP] initialized SUCCESSFULLY');
 };
 
-const startScraper = (callback) => {
-  application.scraper(callback);
-};
+process.title = packageName;
 
 process
   .on('SIGTERM', shutdown)
   .on('SIGINT', shutdown)
   .on('SIGHUP', shutdown)
   .on('uncaughtException', (err) => {
-    winston.error('uncaughtException caught the error: ', JSON.stringify(err));
+    winston.error(`uncaughtException caught the error: ${JSON.stringify(err)}`);
     throw err;
   })
   .on('exit', (code) => {
-    winston.info('Node process exit with code: %s', code);
+    winston.info(`Node process exit with code: ${code}`);
   });
-
-process.title = packageName;
 
 winston.info('[APP] Starting application initialization');
 
-series([
-  startApplication,
-  startScraper
-], (err) => {
-  if (err) {
-    winston.error('[APP] initialization failed', err);
-  } else {
-    winston.info('[APP] initialized SUCCESSFULLY');
-  }
-});
+try {
+  startApplication();
+} catch (error) {
+  winston.error(`[APP] initialization failed ${JSON.stringify(error)}`);
+}
