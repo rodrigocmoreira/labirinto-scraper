@@ -23,7 +23,7 @@ describe('Unit Test load-shows', () => {
 
   it('Should receive a request status 429 and then return empty response', async () => {
     const requestStatus429 = {
-      statusCode: 429
+      status: 429
     };
 
     const requestStub = sandbox.stub(axios, 'get');
