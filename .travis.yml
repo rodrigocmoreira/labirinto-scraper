@@ -3,9 +3,14 @@ sudo: 'required'
 services:
   - 'docker'
 
+install:
+  - npm install
+cache:
+  directories:
+    - "node_modules"
+
 script:
   - 'npm test'
-  - 'make test'
   - 'make image'
 
 after_success:
