@@ -1,14 +1,14 @@
-dist: trusty
-sudo: required
-language: node_js
-node_js:
-  - "8.11.1"
 
-install:
-  - npm install
-cache:
-  directories:
-    - "node_modules"
+sudo: 'required'
+services:
+  - 'docker'
 
 script:
-  - "npm test"
+  - 'make test'
+  - 'make image'
+
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+      make push-image ;
+    fi
