@@ -4,6 +4,7 @@ services:
   - 'docker'
 
 script:
+  - 'npm test'
   - 'make test'
   - 'make image'
 
