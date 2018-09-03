@@ -17,8 +17,8 @@ after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
       make push-image ;
-      docker tag rodrigocardoso/labirinto-scraper registry.heroku.com/labirinto-scraper/web
-      docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com
-      docker push registry.heroku.com/labirinto-scraper/web
-      ./heroku-container-release.sh
+      docker tag rodrigocardoso/labirinto-scraper registry.heroku.com/labirinto-scraper/web ;
+      docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com ;
+      docker push registry.heroku.com/labirinto-scraper/web ;
+      ./heroku-container-release.sh ;
     fi
