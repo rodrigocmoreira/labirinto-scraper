@@ -1,4 +1,4 @@
-IMAGE := rodrigocardoso/labirinto-scraper:1.1.1
+IMAGE := rodrigocardoso/labirinto-scraper:1.1.2
 
 image:
 	docker build -t $(IMAGE) .
@@ -6,4 +6,4 @@ image:
 push-image:
 	docker push $(IMAGE)
 
-.PHONY: image push-image test
+.PHONY: image push-image

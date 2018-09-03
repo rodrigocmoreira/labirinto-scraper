@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:8
 
-COPY . /app/labirinto-scraper
-WORKDIR /app/labirinto-scraper
+COPY . /opt/labirinto-scraper
+WORKDIR /opt/labirinto-scraper
 
 RUN npm install --production
 
