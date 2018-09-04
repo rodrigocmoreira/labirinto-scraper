@@ -7,6 +7,6 @@ push-image:
 	docker push $(IMAGE)
 
 tag:
-	docker tag $(IMAGE) registry.heroku.com/labirinto-scraper/web ;
+	docker tag $(IMAGE) registry.heroku.com/labirinto-scraper/web
 
 .PHONY: image push-image tag
