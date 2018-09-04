@@ -1,4 +1,4 @@
-IMAGE := rodrigocardoso/labirinto-scraper:1.1.3
+IMAGE := rodrigocardoso/labirinto-scraper:1.1.4
 
 image:
 	docker build -t $(IMAGE) .
