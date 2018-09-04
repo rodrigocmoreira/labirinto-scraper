@@ -17,7 +17,8 @@ after_success:
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
       make image ;
       make push-image ;
-      docker login --username=_ --password-stdin="$HEROKU_AUTH_TOKEN" registry.heroku.com ;
+      make tag ;
+      docker login --username=_ --password="$HEROKU_AUTH_TOKEN" registry.heroku.com ;
       docker push registry.heroku.com/labirinto-scraper/web ;
     fi
   - ./heroku-container-release.sh

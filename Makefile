@@ -1,4 +1,4 @@
-IMAGE := rodrigocardoso/labirinto-scraper:1.1.4
+IMAGE := rodrigocardoso/labirinto-scraper:1.1.5
 
 image:
 	docker build -t $(IMAGE) .
@@ -9,4 +9,4 @@ push-image:
 tag:
 	docker tag $(IMAGE) registry.heroku.com/labirinto-scraper/web ;
 
-.PHONY: image push-image
+.PHONY: image push-image tag
